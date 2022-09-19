@@ -1,8 +1,16 @@
-1. Хавтаснуудын зохион байгуулалтыг хийх
+1. create-react-app
+2. Init
+3. Хавтаснуудын зохион байгуулалтыг хийх
    BurgerBuilder болон Toolbar component-ийг холбож ажилуулав.
-2. CSS Module ашиглах Toolbar component ийг хэлбэржүүлэх
-3. Burger, BurgerIngredient component-ийг үүсгэж, холболтуудыг хийж дэлгэцэнд гаргав
-4. Online burger app ын CSS-г бичицгээе
-   4.1 Codepen.io dr burger css хийж үзэх
-   4.2 Burger app руу оруулах
-   4.3 Burger css -г том болон жижиг дэлгэц дээр харагдах тохиргоо хийх
+4. CSS Module ашиглах Toolbar component ийг хэлбэржүүлэх
+5. Burger, BurgerIngredient component-ийг үүсгэж, холболтуудыг хийж дэлгэцэнд гаргав
+6. Online burger app ын CSS-г бичицгээе
+   6.1 Codepen.io dr burger css хийж үзэх
+   6.2 Burger app руу оруулах
+   6.3 Burger css -г том болон жижиг дэлгэц дээр харагдах тохиргоо хийх
+7. Хачиртай талхны орцыг динамикаар дүрслэх нь
+   7.1 BurgerBuilder component-д орцыг хадгалах state бичих
+   7.2 Burger component рүү хадгалсан state -г дамжуулах
+   7.3 Burger component дээр state-р орж ирсэн обьектыг хувьсагчинд Array болгон хадгалах
+   7.4 Орцны type (type = 'cheese') болон тоогоор нь тус бүр дэлгэцэнд гаргах
+   7.5 Орц байхгүй үед 'Хачиртай талхны орцыг сонгоно уу?' гэсэн бичиг гаргах
