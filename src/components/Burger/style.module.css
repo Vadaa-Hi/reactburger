@@ -1,0 +1,17 @@
+/* phone display  */
+.Burger {
+  width: 100%;
+  height: 280px;
+  margin: auto;
+  background-color: gray;
+  text-align: center;
+  overflow: scroll;
+}
+/* big display */
+@media (min-width: 800px) and (min-height: 400px) {
+  .Burger {
+    width: 700px;
+    height: 500px;
+  }
+}
+/* every display tohiruulah bolomjtoi  */
