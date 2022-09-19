@@ -23,6 +23,7 @@ class BurgerBuilder extends Component {
     },
     totalPrice: 1000,
     purchasing: false,
+    confirmOrder: false, // state merge
   };
 
   addIngredient = (type) => {
@@ -52,6 +53,13 @@ class BurgerBuilder extends Component {
     }
   };
 
+  showConfirmModal = () => {
+    this.setState({ confirmOrder: true });
+  };
+  closeConfirmModal = () => {
+    this.setState({ confirmOrder: false });
+  };
+
   render() {
     const disabledIngredients = { ...this.state.ingredients };
     // object dotor bdg property oor davtalt hiih
@@ -60,7 +68,10 @@ class BurgerBuilder extends Component {
     }
     return (
       <div>
-        <Modal>
+        <Modal
+          closeConfirmModal={this.closeConfirmModal}
+          show={this.state.confirmOrder}
+        >
           <OrderSummary
             ingredientsNames={INGREDIENT_NAMES}
             ingredients={this.state.ingredients}
@@ -68,6 +79,7 @@ class BurgerBuilder extends Component {
         </Modal>
         <Burger ingredient={this.state.ingredients} />
         <BuildControls
+          showConfirmModal={this.showConfirmModal}
           ingredientsNames={INGREDIENT_NAMES}
           disabled={!this.state.purchasing}
           totalPrice={this.state.totalPrice}

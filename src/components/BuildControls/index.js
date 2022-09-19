@@ -19,7 +19,12 @@ const BuildControls = (props) => {
           name={props.ingredientsNames[el]}
         />
       ))}
-      <button disabled={props.disabled} className={css.OrderButton}>
+      <button
+        //synthetic
+        onClick={props.showConfirmModal}
+        disabled={props.disabled}
+        className={css.OrderButton}
+      >
         ЗАХИАЛАХ
       </button>
     </div>
