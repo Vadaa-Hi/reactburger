@@ -11,6 +11,7 @@ const BuildControl = (props) => (
       Нэмэх
     </button>
     <button
+      disabled={props.disabled[props.type]}
       onClick={() => props.deleteIngredient(props.type)}
       className={css.Less}
     >
