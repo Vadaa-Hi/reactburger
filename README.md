@@ -20,3 +20,4 @@
    8.3 BuildControls & BuildControl component үүсгэх, BurgerBuild -ээс BuildControl руу addIngredient функцыг дамжуулах
    8.4 Ирсэн addIngredient функцыг onClick attribute-д холбох. Нэмэх товч дарсан үед дэлгэц дээр тухайн орц хачиртай талханд нэмэгдэнэ.
    8.5 Хасах товчыг ажилд оруулах гэж үзэх.
+9. Хасах товчыг ажилд оруулав. Өөрөө бичлээ

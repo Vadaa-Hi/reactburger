@@ -10,7 +10,12 @@ const BuildControl = (props) => (
     >
       Нэмэх
     </button>
-    <button className={css.Less}>Хасах</button>
+    <button
+      onClick={() => props.deleteIngredient(props.type)}
+      className={css.Less}
+    >
+      Хасах
+    </button>
   </div>
 );
 
