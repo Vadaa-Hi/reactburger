@@ -7,12 +7,13 @@ const INGREDIENT_PRICES = { salad: 150, cheese: 250, bacon: 800, meat: 1500 };
 class BurgerBuilder extends Component {
   state = {
     ingredients: {
-      salad: 10,
-      cheese: 2,
-      bacon: 3,
+      salad: 0,
+      cheese: 0,
+      bacon: 0,
       meat: 0,
     },
-    totalPrice: 0,
+    totalPrice: 1000,
+    purchasing: false,
   };
 
   addIngredient = (type) => {
@@ -21,7 +22,11 @@ class BurgerBuilder extends Component {
 
     const newPrice = this.state.totalPrice + INGREDIENT_PRICES[type];
 
-    this.setState({ totalPrice: newPrice, ingredients: newIngredients });
+    this.setState({
+      purchasing: true,
+      totalPrice: newPrice,
+      ingredients: newIngredients,
+    });
   };
 
   deleteIngredient = (type) => {
@@ -30,7 +35,11 @@ class BurgerBuilder extends Component {
       newIngredients[type]--;
       //order une
       const newPrice = this.state.totalPrice - INGREDIENT_PRICES[type];
-      this.setState({ totalPrice: newPrice, ingredients: newIngredients });
+      this.setState({
+        purchasing: newPrice > 1000,
+        totalPrice: newPrice,
+        ingredients: newIngredients,
+      });
     }
   };
 
@@ -44,6 +53,7 @@ class BurgerBuilder extends Component {
       <div>
         <Burger ingredient={this.state.ingredients} />
         <BuildControls
+          disabled={!this.state.purchasing}
           totalPrice={this.state.totalPrice}
           disabledIngredients={disabledIngredients}
           addIngredient={this.addIngredient}
