@@ -14,3 +14,9 @@
    7.3 Burger component дээр state-р орж ирсэн обьектыг хувьсагчинд Array болгон хадгалах
    7.4 Орцны type (type = 'cheese') болон тоогоор нь тус бүр дэлгэцэнд гаргах
    7.5 Орц байхгүй үед 'Хачиртай талхны орцыг сонгоно уу?' гэсэн бичиг гаргах
+8. Хачиртай талхны орцыг оруулах BuildControls component-г бичих
+   8.1 BuildControls-оос BuildControl руу type, name -ыг дамжуулах, хэлбэржүүлэлт хийх
+   8.2 BurgerBuild -д addIngredient функцыг бичиж өгөх, САНАМЖ: class ын state-г өөрчлөхөд заавал шинэ обьект үүсгэнэ
+   8.3 BuildControls & BuildControl component үүсгэх, BurgerBuild -ээс BuildControl руу addIngredient функцыг дамжуулах
+   8.4 Ирсэн addIngredient функцыг onClick attribute-д холбох. Нэмэх товч дарсан үед дэлгэц дээр тухайн орц хачиртай талханд нэмэгдэнэ.
+   8.5 Хасах товчыг ажилд оруулах гэж үзэх.
