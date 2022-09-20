@@ -59,6 +59,9 @@ class BurgerBuilder extends Component {
   closeConfirmModal = () => {
     this.setState({ confirmOrder: false });
   };
+  continueOrder = () => {
+    console.log('Continue');
+  };
 
   render() {
     const disabledIngredients = { ...this.state.ingredients };
@@ -73,6 +76,8 @@ class BurgerBuilder extends Component {
           show={this.state.confirmOrder}
         >
           <OrderSummary
+            onCancel={this.closeConfirmModal}
+            onContinue={this.continueOrder}
             price={this.state.totalPrice}
             ingredientsNames={INGREDIENT_NAMES}
             ingredients={this.state.ingredients}
