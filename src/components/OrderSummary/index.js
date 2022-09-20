@@ -12,6 +12,9 @@ const OrderSummary = (props) => {
           </li>
         ))}
       </ul>
+      <p>
+        <strong> Захиалгын дүн: {props.price}</strong>
+      </p>
       <p>Цаашаа үргэлжлүүлэх үү?</p>
     </div>
   );
