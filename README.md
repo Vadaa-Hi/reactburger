@@ -32,3 +32,4 @@
 16. Shadow компонентийг бичиж Модал цонхонд оруулцгаая
 17. Button компонент бичиж OrderSummary component-д ашиглах 11.24
 18. Logo компонентийг хийж Toolbar компонентод ашиглах, serve ашиглан production build кодыг ажилуулах
+19. Menu, MenuItem component -г хийх. Жич active ажиллахгүй байна. Засах
