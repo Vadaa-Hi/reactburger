@@ -33,4 +33,6 @@
 17. Button компонент бичиж OrderSummary component-д ашиглах 11.24
 18. Logo компонентийг хийж Toolbar компонентод ашиглах, serve ашиглан production build кодыг ажилуулах
 19. Menu, MenuItem component -г хийх. Жич active ажиллахгүй байна. Засах
-20. Active fix css дээр алдаа гаргажээ
+20. Active fix css дээр алдаа гаргажээ css
+21. Active fix css дээр алдаа гаргажээ readme
+22. SideBar component хийх
