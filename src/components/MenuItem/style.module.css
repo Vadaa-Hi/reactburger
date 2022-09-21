@@ -1,8 +1,7 @@
 .MenuItem {
   margin: 0;
   display: block;
-  height: 100%;
-  width: auto;
+  width: 100%;
   align-items: center;
 }
 
@@ -19,7 +18,7 @@
 .MenuItem a.active {
   color: #40a4c8;
 }
-@media (min-width: 500) {
+@media (min-width: 500px) {
   .MenuItem {
     margin: 0;
     display: flex;

@@ -36,3 +36,4 @@
 20. Active fix css дээр алдаа гаргажээ css
 21. Active fix css дээр алдаа гаргажээ readme
 22. SideBar component хийх
+23. SideBar-д animation хийх, App component-г класс компонент рүү хөрвүүлэх
