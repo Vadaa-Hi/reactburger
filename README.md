@@ -37,3 +37,4 @@
 21. Active fix css дээр алдаа гаргажээ readme
 22. SideBar component хийх
 23. SideBar-д animation хийх, App component-г класс компонент рүү хөрвүүлэх
+24. HamburgerMenu component бичих, Shadow дээр дарахаар SideBar арилна.
