@@ -26,6 +26,7 @@ class BurgerBuilder extends Component {
     totalPrice: 1000,
     purchasing: false,
     confirmOrder: false, // state merge
+    lastCustomerName: 'N/A',
   };
 
   addIngredient = (type) => {
@@ -66,7 +67,7 @@ class BurgerBuilder extends Component {
       ingredient: this.state.ingredients,
       price: this.state.totalPrice,
       address: {
-        name: 'Sar',
+        name: 'Md',
         city: 'ub',
         street: ' 10th khoroolol',
       },
@@ -74,9 +75,24 @@ class BurgerBuilder extends Component {
     axios.post('/orders.json', order).then((response) => {
       alert('Succesfully');
     });
-    console.log('Continue');
   };
 
+  componentDidMount = () => {
+    axios.get('/orders.json').then((res) => {
+      let arr = Object.entries(res.data);
+      arr = arr.reverse();
+      arr.forEach((el) => {
+        console.log(el[1].address.name + '==>' + el[1].price);
+      });
+      const lastOrder = arr[arr.length - 1][1];
+      // console.log(lastOrder);
+      this.setState({
+        lastCustomerName: lastOrder.address.name,
+        ingredients: lastOrder.ingredient,
+        totalPrice: lastOrder.price,
+      });
+    });
+  };
   render() {
     const disabledIngredients = { ...this.state.ingredients };
     // object dotor bdg property oor davtalt hiih
@@ -97,6 +113,9 @@ class BurgerBuilder extends Component {
             ingredients={this.state.ingredients}
           />
         </Modal>
+        <p style={{ width: '100%', textAlign: 'center', fontSize: '28px' }}>
+          Сүүлчийн захиалагч : {this.state.lastCustomerName}
+        </p>
         <Burger ingredient={this.state.ingredients} />
         <BuildControls
           showConfirmModal={this.showConfirmModal}
