@@ -4,6 +4,7 @@ import BuildControls from '../../components/BuildControls';
 import Modal from '../../components/General/Modal';
 import OrderSummary from '../../components/OrderSummary';
 import axios from '../../axios-orders';
+import Spinner from '../../components/General/Spinner';
 
 // Une oorchlogdohgvi tul class component iin gadna zarlav
 const INGREDIENT_PRICES = { salad: 150, cheese: 250, bacon: 800, meat: 1500 };
@@ -27,6 +28,7 @@ class BurgerBuilder extends Component {
     purchasing: false,
     confirmOrder: false, // state merge
     lastCustomerName: 'N/A',
+    loading: false,
   };
 
   addIngredient = (type) => {
@@ -72,26 +74,37 @@ class BurgerBuilder extends Component {
         street: ' 10th khoroolol',
       },
     };
-    axios.post('/orders.json', order).then((response) => {
-      alert('Succesfully');
-    });
+    this.setState({ loading: true });
+    axios
+      .post('/orders.json', order)
+      .then((response) => {})
+      .finally(() => {
+        this.setState({ loading: false });
+      });
   };
 
   componentDidMount = () => {
-    axios.get('/orders.json').then((res) => {
-      let arr = Object.entries(res.data);
-      arr = arr.reverse();
-      arr.forEach((el) => {
-        console.log(el[1].address.name + '==>' + el[1].price);
+    this.setState({ loading: true });
+    axios
+      .get('/orders.json')
+      .then((res) => {
+        let arr = Object.entries(res.data);
+        arr = arr.reverse();
+        arr.forEach((el) => {
+          console.log(el[1].address.name + '==>' + el[1].price);
+        });
+        const lastOrder = arr[arr.length - 1][1];
+        // console.log(lastOrder);
+        this.setState({
+          lastCustomerName: lastOrder.address.name,
+          ingredients: lastOrder.ingredient,
+          totalPrice: lastOrder.price,
+        });
+      })
+      .catch((err) => console.log(err))
+      .finally(() => {
+        this.setState({ loading: false });
       });
-      const lastOrder = arr[arr.length - 1][1];
-      // console.log(lastOrder);
-      this.setState({
-        lastCustomerName: lastOrder.address.name,
-        ingredients: lastOrder.ingredient,
-        totalPrice: lastOrder.price,
-      });
-    });
   };
   render() {
     const disabledIngredients = { ...this.state.ingredients };
@@ -105,14 +118,19 @@ class BurgerBuilder extends Component {
           closeConfirmModal={this.closeConfirmModal}
           show={this.state.confirmOrder}
         >
-          <OrderSummary
-            onCancel={this.closeConfirmModal}
-            onContinue={this.continueOrder}
-            price={this.state.totalPrice}
-            ingredientsNames={INGREDIENT_NAMES}
-            ingredients={this.state.ingredients}
-          />
+          {this.state.loading ? (
+            <Spinner />
+          ) : (
+            <OrderSummary
+              onCancel={this.closeConfirmModal}
+              onContinue={this.continueOrder}
+              price={this.state.totalPrice}
+              ingredientsNames={INGREDIENT_NAMES}
+              ingredients={this.state.ingredients}
+            />
+          )}
         </Modal>
+        {this.state.loading && <Spinner />}
         <p style={{ width: '100%', textAlign: 'center', fontSize: '28px' }}>
           Сүүлчийн захиалагч : {this.state.lastCustomerName}
         </p>
