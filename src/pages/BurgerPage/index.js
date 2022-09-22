@@ -3,6 +3,8 @@ import Burger from '../../components/Burger';
 import BuildControls from '../../components/BuildControls';
 import Modal from '../../components/General/Modal';
 import OrderSummary from '../../components/OrderSummary';
+import axios from '../../axios-orders';
+
 // Une oorchlogdohgvi tul class component iin gadna zarlav
 const INGREDIENT_PRICES = { salad: 150, cheese: 250, bacon: 800, meat: 1500 };
 // Oor gazruudad ashiglah bolson tul eronhii bolgov.
@@ -60,6 +62,18 @@ class BurgerBuilder extends Component {
     this.setState({ confirmOrder: false });
   };
   continueOrder = () => {
+    const order = {
+      ingredient: this.state.ingredients,
+      price: this.state.totalPrice,
+      address: {
+        name: 'Sar',
+        city: 'ub',
+        street: ' 10th khoroolol',
+      },
+    };
+    axios.post('/orders.json', order).then((response) => {
+      alert('Succesfully');
+    });
     console.log('Continue');
   };
 
