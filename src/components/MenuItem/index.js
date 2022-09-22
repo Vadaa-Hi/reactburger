@@ -1,11 +1,13 @@
 import React from 'react';
 import css from './style.module.css';
+import { NavLink } from 'react-router-dom';
 
 const MenuItem = (props) => (
   <li className={css.MenuItem}>
-    <a className={props.active ? css.active : null} href={props.link}>
+    {/* click darsan uyd idevhjihgvi bn. Buyu css ogch chaddaggvi ee. 2022.09.23 */}
+    <NavLink to={props.link} ClassName={css.active}>
       {props.children}
-    </a>
+    </NavLink>
   </li>
 );
 

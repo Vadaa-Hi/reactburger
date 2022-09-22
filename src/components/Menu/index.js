@@ -6,9 +6,7 @@ const Menu = () => (
   <div>
     <ul className={css.Menu}>
       <MenuItem link="/">ШИНЭ ЗАХИАЛГА</MenuItem>
-      <MenuItem active link="/login">
-        НЭВТРЭХ
-      </MenuItem>
+      <MenuItem link="/orders">ЗАХИАЛГАНУУД</MenuItem>
     </ul>
   </div>
 );

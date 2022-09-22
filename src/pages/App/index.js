@@ -4,6 +4,7 @@ import BurgerPage from '../BurgerPage';
 import SideBar from '../../components/SideBar';
 import { Component } from 'react';
 import OrderPage from '../OrderPage';
+import { Route, Routes } from 'react-router-dom';
 
 class App extends Component {
   state = {
@@ -25,8 +26,10 @@ class App extends Component {
           toggleSideBar={this.toggleSideBar}
         />
         <main className={css.Content}>
-          <BurgerPage />
-          <OrderPage />
+          <Routes>
+            <Route path="/" element={<BurgerPage />} />
+            <Route path="/orders" element={<OrderPage />} />
+          </Routes>
         </main>
       </div>
     );
