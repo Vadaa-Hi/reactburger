@@ -22,7 +22,6 @@ class OrderPage extends React.Component {
       });
   };
   render() {
-    console.log(this.state.order);
     return (
       <div>
         {this.state.loading ? (

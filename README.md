@@ -43,3 +43,4 @@
 27. Firebase баазаас унших, бичих үед Spinner үзүүлэх
 28. OrdersPage, Order component-уудыг хийх
 29. React Router холбох, захиалгын хуудсыг линк дарж гаргах. <NavLink> дээр асуудал гарлаа. MenuItem 7р мөр
+30. React Router v6 dr activeClassName байхгүй болсон. Өөр бичиглэлээр хийв.

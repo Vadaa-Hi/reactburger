@@ -5,7 +5,7 @@ import css from './style.module.css';
 const Menu = () => (
   <div>
     <ul className={css.Menu}>
-      <MenuItem link="/">ШИНЭ ЗАХИАЛГА</MenuItem>
+      <MenuItem link="/new">ШИНЭ ЗАХИАЛГА</MenuItem>
       <MenuItem link="/orders">ЗАХИАЛГАНУУД</MenuItem>
     </ul>
   </div>
